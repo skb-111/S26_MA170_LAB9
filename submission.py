@@ -25,12 +25,13 @@ class Vector2D:
     def __init__(self, x, y):
         """Store the coordinates on the instance."""
         # TODO: store x and y as instance attributes
-        pass
+        self.x = x
+        self.y = y
 
     def __str__(self):
         """Return a readable string like Vector2D(3, 4)."""
         # TODO: return the string representation
-        return None
+        return f"Vector2D({self.x}, {self.y})"
 
     def add(self, other):
         """
@@ -42,7 +43,7 @@ class Vector2D:
             Another vector.
         """
         # TODO: return a new Vector2D with added coordinates
-        return None
+        return Vector2D(self.x + other.x, self.y + other.y)
 
     def dot(self, other):
         """
@@ -54,7 +55,7 @@ class Vector2D:
             Another vector.
         """
         # TODO: return the dot product
-        return None
+        return self.x * other.x + self.y * other.y
 
 
 def batch_right_multiply_einsum(T: torch.Tensor, B: torch.Tensor) -> torch.Tensor:
@@ -77,4 +78,4 @@ def batch_right_multiply_einsum(T: torch.Tensor, B: torch.Tensor) -> torch.Tenso
     Use torch.einsum.
     """
     # TODO: use torch.einsum for batched right multiplication
-    return None
+    return torch.einsum('bmn,nk->bmk', T, B)
